@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Inicio de Sesión</title>
+    <link rel="stylesheet" href="../css/registro.css">
+</head>
+<body>
+
+    <div class="contenedor">
+
+        <!-- ESPACIO PARA IMAGEN O LOGOTIPO -->
+        <div class="imagen">
+            <img src="img/logo.png" alt="Logo" onerror="this.style.display='none'">
+            <h1>Mi Sistema</h1>
+            <p>Bienvenido a nuestra plataforma</p>
+        </div>
+
+        <div class="contenido">
+
+            <!-- INICIO DE SESIÓN -->
+            <section id="login" class="pantalla activa">
+                <h2>Iniciar sesión</h2>
+                <p>Ingresa tus datos para continuar</p>
+
+                <form id="formLogin">
+                    <input type="text" id="loginUsuario"
+                        placeholder="Usuario o correo electrónico" required>
+
+                    <input type="password" id="loginPassword"
+                        placeholder="Contraseña" required>
+
+                    <button type="submit">Ingresar</button>
+                </form>
+
+                <div class="enlaces">
+                    <a href="#" onclick="mostrar('recuperarUsuario')">
+                        ¿Olvidaste tu usuario?
+                    </a>
+
+                    <a href="#" onclick="mostrar('recuperarPassword')">
+                        ¿Olvidaste tu contraseña?
+                    </a>
+                </div>
+
+                <p>¿No tienes una cuenta?
+                    <a href="#" onclick="mostrar('registro')">Regístrate</a>
+                </p>
+            </section>
+
+            <!-- REGISTRO -->
+            <section id="registro" class="pantalla">
+                <h2>Crear cuenta</h2>
+                <p>Completa tus datos para registrarte</p>
+
+                <form id="formRegistro">
+                    <input type="text" id="nombre"
+                        placeholder="Nombre completo" required>
+
+                    <input type="text" id="nuevoUsuario"
+                        placeholder="Nombre de usuario" required>
+
+                    <input type="email" id="nuevoCorreo"
+                        placeholder="Correo electrónico" required>
+
+                    <input type="password" id="nuevaPassword"
+                        placeholder="Crear contraseña" minlength="6" required>
+
+                    <button type="submit">Registrarse</button>
+                </form>
+
+                <p>¿Ya tienes una cuenta?
+                    <a href="#" onclick="mostrar('login')">Inicia sesión</a>
+                </p>
+            </section>
+
+            <!-- RECUPERAR USUARIO -->
+            <section id="recuperarUsuario" class="pantalla">
+                <h2>Recuperar usuario</h2>
+                <p>Introduce tu correo electrónico registrado</p>
+
+                <form id="formRecuperarUsuario">
+                    <input type="email" id="correoUsuario"
+                        placeholder="Correo electrónico" required>
+
+                    <button type="submit">Recuperar usuario</button>
+                </form>
+
+                <div id="resultadoUsuario" class="resultado"></div>
+
+                <a href="#" onclick="mostrar('login')">
+                    Volver al inicio de sesión
+                </a>
+            </section>
+
+            <!-- RECUPERAR CONTRASEÑA -->
+            <section id="recuperarPassword" class="pantalla">
+                <h2>Recuperar contraseña</h2>
+                <p>Verifica tu correo y establece una nueva contraseña</p>
+
+                <form id="formRecuperarPassword">
+                    <input type="email" id="correoPassword"
+                        placeholder="Correo electrónico registrado" required>
+
+                    <input type="password" id="passwordNueva"
+                        placeholder="Nueva contraseña" minlength="6" required>
+
+                    <input type="password" id="confirmarPassword"
+                        placeholder="Confirmar nueva contraseña" minlength="6" required>
+
+                    <button type="submit">Cambiar contraseña</button>
+                </form>
+
+                <div id="resultadoPassword" class="resultado"></div>
+
+                <a href="#" onclick="mostrar('login')">
+                    Volver al inicio de sesión
+                </a>
+            </section>
+
+            <!-- BIENVENIDA -->
+            <section id="bienvenida" class="pantalla">
+                <h2>¡Bienvenido!</h2>
+                <h3 id="saludoUsuario"></h3>
+                <p>Has iniciado sesión correctamente.</p>
+                <button onclick="cerrarSesion()">Cerrar sesión</button>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="../js/registro.js"></script>
+</body>
+</html>
